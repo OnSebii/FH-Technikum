@@ -7,9 +7,11 @@ public class TicTacToe {
     public Board Board;
 
     public TicTacToe(Player player1, Player player2, Player currentPlayer, org.example.Board board) {
-        Player1 = player1;
-        Player2 = player2;
-        CurrentPlayer = currentPlayer;
-        Board = board;
+        Player1 = new Player('X');
+        Player2 = new Player('O');
+        CurrentPlayer = Player1;
+        Board = new Board();
     }
+
+
 }
