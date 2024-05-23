@@ -14,6 +14,7 @@ public class Main {
         Board GameBoard = new Board();
         TicTacToe game = new TicTacToe(PlayerX, PlayerY, PlayerX, GameBoard);
 
+        game.play();
         // Press Shift+F10 or click the green arrow button in the gutter to run the code.
         for (int i = 1; i <= 5; i++) {
 
