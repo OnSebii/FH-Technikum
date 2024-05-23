@@ -8,6 +8,12 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
 
+//        Init two players, board and the game
+        Player PlayerX = new Player('X');
+        Player PlayerY = new Player('Y');
+        Board GameBoard = new Board();
+        TicTacToe game = new TicTacToe(PlayerX, PlayerY, PlayerX, GameBoard);
+
         // Press Shift+F10 or click the green arrow button in the gutter to run the code.
         for (int i = 1; i <= 5; i++) {
 
