@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TicTacToeTest {
     @Test
-    public void TestGame(){
+    public void TestIndex(){
         Board board = new Board();
 
         assertFalse(board.isIndexInRange(1, 5));
