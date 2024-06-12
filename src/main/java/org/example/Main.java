@@ -10,9 +10,8 @@ public class Main {
 
 //        Init two players, board and the game
         Player PlayerX = new Player('X');
-        Player PlayerY = new Player('Y');
-        Board GameBoard = new Board();
-        TicTacToe game = new TicTacToe(PlayerX, PlayerY, PlayerX, GameBoard);
+        Player PlayerY = new Player('O');
+        TicTacToe game = new TicTacToe(PlayerX, PlayerY);
 
         game.play();
     }
