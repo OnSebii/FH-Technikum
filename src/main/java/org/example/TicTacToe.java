@@ -12,9 +12,10 @@ public class TicTacToe {
         this.player1 = player1;
         this.player2 = player2;
         this.board = new Board();
-    }
-    public void play() {
         currentPlayer = player1;
+    }
+
+    public void play() {
         boolean switcher = false;
         Scanner sc = new Scanner(System.in);
         while (!hasWinner()) {
