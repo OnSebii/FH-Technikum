@@ -15,24 +15,28 @@ public class TicTacToe {
         Board = new Board();
     }
     public void play() {
+        boolean switcher = false;
         Scanner sc = new Scanner(System.in);
-        while (true) {
-            Board.print();
-            System.out.println("Current Player: " + CurrentPlayer.getMarker());
-            System.out.print("Row (0-2): ");
-            int row = sc.nextInt();
-            System.out.print("Column (0-2): ");
-            int col = sc.nextInt();
+        while (!hasWinner()) {
+            switcher = !switcher;
+            CurrentPlayer = switcher ? Player1 : Player2;
+            while (true) {
+                Board.print();
+                System.out.println("Current Player: " + CurrentPlayer.getMarker());
+                System.out.print("Row (0-2): ");
+                int row = sc.nextInt();
+                System.out.print("Column (0-2): ");
+                int col = sc.nextInt();
 
-            if (Board.isCellEmpty(row, col)) {
-                Board.place(row, col, CurrentPlayer.getMarker());
-                if(hasWinner()) {
-                    Board.print();
-                    System.out.println("Player " + CurrentPlayer.getMarker() + " wins!");
+                if (Board.isCellEmpty(row, col)) {
+                    Board.place(row, col, CurrentPlayer.getMarker());
                     break;
                 }
+                System.out.println("Field is already taken. Try again!");
             }
         }
+        Board.print();
+        System.out.println("Player " + CurrentPlayer.getMarker() + " wins!");
     }
 
     public boolean hasWinner() {
