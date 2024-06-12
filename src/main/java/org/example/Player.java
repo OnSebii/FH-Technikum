@@ -3,7 +3,7 @@ package org.example;
 public class Player {
     public char Marker;
 
-    Player(char marker){
+    public Player(char marker){
         this.Marker = marker;
     }
 
