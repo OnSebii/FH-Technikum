@@ -8,13 +8,13 @@ public class TicTacToe {
     public Player CurrentPlayer;
     public Board Board;
 
-    public TicTacToe(Player player1, Player player2, Player currentPlayer, org.example.Board board) {
-        Player1 = new Player('X');
-        Player2 = new Player('O');
-        CurrentPlayer = Player1;
+    public TicTacToe(Player player1, Player player2) {
+        Player1 = player1;
+        Player2 = player2;
         Board = new Board();
     }
     public void play() {
+        CurrentPlayer = Player1;
         boolean switcher = false;
         Scanner sc = new Scanner(System.in);
         while (!hasWinner()) {
@@ -28,6 +28,10 @@ public class TicTacToe {
                 System.out.print("Column (0-2): ");
                 int col = sc.nextInt();
 
+                if (!Board.isIndexInRange(row,col)) {
+                    System.out.println("Index out of bounds. Try again!");
+                    continue;
+                }
                 if (Board.isCellEmpty(row, col)) {
                     Board.place(row, col, CurrentPlayer.getMarker());
                     break;
@@ -47,11 +51,8 @@ public class TicTacToe {
                 return true;
             }
         }
-        if ((Board.cells[0][0] == m && Board.cells[1][1] == m && Board.cells[2][2] == m) ||
-                (Board.cells[0][2] == m && Board.cells[1][1] == m && Board.cells[2][0] == m)) {
-            return true;
-        }
-        return false;
+        return (Board.cells[0][0] == m && Board.cells[1][1] == m && Board.cells[2][2] == m) ||
+                (Board.cells[0][2] == m && Board.cells[1][1] == m && Board.cells[2][0] == m);
     }
 
 }
