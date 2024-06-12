@@ -15,6 +15,9 @@ public class Board {
     public boolean isCellEmpty(int x, int y) {
         return cells[x][y] ==' ';
     }
+    public boolean isIndexInRange(int x, int y) {
+        return x < cells.length && x >= 0 && y < cells[x].length && y >= 0;
+    }
 
     public void place(int x, int y, char marker) {
         if (isCellEmpty(x, y)){
