@@ -22,16 +22,14 @@ public class Board {
         }
     }
     public void print() {
-        for (int i = 0; i<3;i++){
-            for (int j = 0; j<3;j++) {
-                System.out.print(cells[i][j]);
-                if(j<2) {
-                    System.out.println("|");
-                }
-                if(i<2) {
-                    System.out.println("-----");
-                }
+        for (int i = 0; i<=2;i++){
+            System.out.print((cells[i][0] == '\u0000') ? ' ' : cells[i][0] +"|");
+            System.out.print((cells[i][1] == '\u0000') ? ' ' : cells[i][1] +"|");
+            System.out.println((cells[i][2] == '\u0000') ? ' ' : cells[i][2]);
+            if(i<2) {
+                System.out.println("------");
             }
         }
     }
+
 }
