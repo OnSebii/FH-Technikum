@@ -3,57 +3,56 @@ package org.example;
 import java.util.Scanner;
 
 public class TicTacToe {
-    public Player player1;
-    public Player player2;
-    public Player currentPlayer;
-    public Board board;
+    public Player Player1;
+    public Player Player2;
+    public Player CurrentPlayer;
+    public Board Board;
 
     public TicTacToe(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-        this.board = new Board();
-        currentPlayer = player1;
+        Player1 = player1;
+        Player2 = player2;
+        Board = new Board();
     }
-
     public void play() {
+        CurrentPlayer = Player1;
         boolean switcher = false;
         Scanner sc = new Scanner(System.in);
         while (!hasWinner()) {
             switcher = !switcher;
-            currentPlayer = switcher ? player1 : player2;
+            CurrentPlayer = switcher ? Player1 : Player2;
             while (true) {
-                board.print();
-                System.out.println("Current Player: " + currentPlayer.getMarker());
+                Board.print();
+                System.out.println("Current Player: " + CurrentPlayer.getMarker());
                 System.out.print("Row (0-2): ");
                 int row = sc.nextInt();
                 System.out.print("Column (0-2): ");
                 int col = sc.nextInt();
 
-                if (!board.isIndexInRange(row,col)) {
+                if (!Board.isIndexInRange(row,col)) {
                     System.out.println("Index out of bounds. Try again!");
                     continue;
                 }
-                if (board.isCellEmpty(row, col)) {
-                    board.place(row, col, currentPlayer.getMarker());
+                if (Board.isCellEmpty(row, col)) {
+                    Board.place(row, col, CurrentPlayer.getMarker());
                     break;
                 }
                 System.out.println("Field is already taken. Try again!");
             }
         }
-        board.print();
-        System.out.println("Player " + currentPlayer.getMarker() + " wins!");
+        Board.print();
+        System.out.println("Player " + CurrentPlayer.getMarker() + " wins!");
     }
 
     public boolean hasWinner() {
-        char m = currentPlayer.getMarker();
+        char m = CurrentPlayer.getMarker();
         for (int i = 0; i < 3; i++) {
-            if ((board.cells[i][0] == m && board.cells[i][1] == m && board.cells[i][2] == m) ||
-                    (board.cells[0][i] == m && board.cells[1][i] == m && board.cells[2][i] == m)) {
+            if ((Board.cells[i][0] == m && Board.cells[i][1] == m && Board.cells[i][2] == m) ||
+                    (Board.cells[0][i] == m && Board.cells[1][i] == m && Board.cells[2][i] == m)) {
                 return true;
             }
         }
-        return (board.cells[0][0] == m && board.cells[1][1] == m && board.cells[2][2] == m) ||
-                (board.cells[0][2] == m && board.cells[1][1] == m && board.cells[2][0] == m);
+        return (Board.cells[0][0] == m && Board.cells[1][1] == m && Board.cells[2][2] == m) ||
+                (Board.cells[0][2] == m && Board.cells[1][1] == m && Board.cells[2][0] == m);
     }
 
 }

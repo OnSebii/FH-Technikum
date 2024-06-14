@@ -9,9 +9,9 @@ public class Main {
         System.out.println("Hello and welcome!");
 
 //        Init two players, board and the game
-        Player playerX = new Player('X');
-        Player playerY = new Player('O');
-        TicTacToe game = new TicTacToe(playerX, playerY);
+        Player PlayerX = new Player('X');
+        Player PlayerY = new Player('O');
+        TicTacToe game = new TicTacToe(PlayerX, PlayerY);
 
         game.play();
     }
